@@ -11,15 +11,18 @@ public class ImmutableList<T> implements Iterable<T> {
     /** The tail is the list following the head element. */
     private final ImmutableList<T> tail;
 
-    /** An empty list. */
+    /**
+     * An empty list. <br>
+     * Also used as the initial state of the Immutable List.
+     */
     @SuppressWarnings({ "unchecked", "rawtypes" })
     private final static ImmutableList NULL_LIST = new ImmutableList(null, null);
     
     /**
-     * Checks
+     * Constructor using existing elements.
      * 
-     * @param head
-     * @param tail
+     * @param head the most recently added element
+     * @param tail the list tailing the head element
      */
     private ImmutableList(T head, ImmutableList<T> tail) {
         this.head = head;
@@ -59,8 +62,9 @@ public class ImmutableList<T> implements Iterable<T> {
     }
 
     /**
+     * Gets and empty immutable list.
      * 
-     * @return
+     * @return final static empty list
      */
     @SuppressWarnings("unchecked")
     public static <T> ImmutableList<T> getEmptyImmutableList() {
